@@ -1,6 +1,5 @@
 /**
- * Mostly a copy of https://github.com/naoufal/react-native-touch-id
- * @providesModule LocalAuth
+ * Forked off: https://github.com/tradle/react-native-local-auth
  * @flow
  */
 'use strict'
@@ -20,11 +19,10 @@ module.exports = {
     return RNLocalAuth.isDeviceSecure()
   },
 
-  authenticate(opts) {
-    return RNLocalAuth.authenticate(opts)
-      .catch(err => {
-        err.name = err.code
-        throw err
-      })
+  authenticate(opts: mixed) {
+    return RNLocalAuth.authenticate(opts).catch(err => {
+      err.name = err.code
+      throw err
+    })
   }
 }
